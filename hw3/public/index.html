@@ -1,0 +1,170 @@
+<!-- 
+Author: Ruth Shepard
+Class: Software Engineering
+Assignment: HW 3
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- jQuery CDN (load this first) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Ensure webpage scales properly to match screen size and initial zoom -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cheesecake Order Form</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/styleFinal.css">
+  
+  <style>
+    /* Container for dropdown and radio buttons */
+    .container {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    /* Styling for the radio button group */
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .radio-group label {
+      margin-left: 5px;
+    }
+
+    /* Styling for the hoverable month widget */
+    .widget {
+      color: #FFD700;
+      cursor: pointer;
+    }
+
+    /* Dropdown styles for the month selection */
+    #monthDropdownSelect {
+      color: #FFD700;
+      cursor: pointer;
+      font-size: 1.2em;
+      background-color: #FAF2DB;
+      padding: 5px 15px;
+      border-radius: 5px;
+      border: 1px solid #E6CBA8;
+    }
+
+    /* Styling for the order list */
+    .order-list {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .order-list li {
+      font-size: 1.6em;
+      background: rgba(43, 8, 8, 0.85);
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      text-transform: capitalize;
+      width: 60%;
+    }
+
+    /* Styling for the confirmation message */
+    #orderMessage {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #E6CBA8;
+      background-color: rgba(43, 8, 8, 0.85);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      max-width: 600px;
+      margin: 20px auto;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Cheesecake Order Form</h1>
+
+  <!-- Cheesecake Image -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg" 
+    alt="Cheesecake with cherry drizzle" width="200" height="200">
+
+  <p>Quantity Topping</p>
+
+  <!-- Order form -->
+  <form id="orderForm" onsubmit="return false;">
+    <div class="container">
+      <!-- Quantity Dropdown -->
+      <select id="num">
+        <!-- Dropdown options will be populated by JavaScript -->
+      </select>
+
+      <!-- Radio Buttons for Topping Selection -->
+      <div class="radio-group">
+        <div>
+          <input type="radio" id="plain" name="topping" value="plain" required>
+          <label for="plain">Plain</label><br>
+        </div>
+        <div>
+          <input type="radio" id="cherry" name="topping" value="cherry" required>
+          <label for="cherry">Cherry</label><br>
+        </div>
+        <div>
+          <input type="radio" id="chocolate" name="topping" value="chocolate" required>
+          <label for="chocolate">Chocolate</label><br>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notes Section -->
+    <p>Notes:</p>
+    <textarea rows="4" cols="50" name="notes" placeholder="Enter any special instructions here."></textarea>
+    <br><br>
+
+    <!-- Order Submit Button -->
+    <button type="submit" id="orderButton">Order</button>
+  </form>
+
+  <!-- Confirmation Message Area -->
+  <p id="orderMessage"></p>
+
+  <!-- Orders Summary Section -->
+  <p id="ordersHeading">Orders for 
+    <select id="monthDropdownSelect" class="widget">
+      <option value="Jan">Jan</option>
+      <option value="Feb">Feb</option>
+      <option value="Mar">Mar</option>
+      <option value="Apr">Apr</option>
+      <option value="May">May</option>
+      <option value="Jun">Jun</option>
+      <option value="Jul">Jul</option>
+      <option value="Aug">Aug</option>
+      <option value="Sep">Sep</option>
+      <option value="Oct">Oct</option>
+      <option value="Nov">Nov</option>
+      <option value="Dec">Dec</option>
+    </select>
+  </p>
+
+  <!-- Order List -->
+  <ul class="order-list" id="orderList">
+    <!-- Data will be automatically updated here -->
+  </ul>
+
+  <!-- Your custom JavaScript file (cheesecakeOrder.js) -->
+  <script src="/javascripts/cheesecakeOrder.js"></script>
+</body>
+</html>
