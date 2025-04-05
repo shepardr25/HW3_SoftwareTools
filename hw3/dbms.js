@@ -1,11 +1,14 @@
+/*
+Author: Ruth Shepard
+Class: Software Engineering
+Assignment: HW 5
+*/
+
 /**
- * Author: Ruth Shepard :)
- * 
  * dbms.js
  *
  * This file contains functions for accessing the MySQL database
  * which contains the Cheesecake order data.
- *
  */
 
 exports.version = '0.0.1';

@@ -1,3 +1,9 @@
+/*
+Author: Ruth Shepard
+Class: Software Engineering
+Assignment: HW 5
+*/
+
 var express = require('express');
 var router = express.Router();
 

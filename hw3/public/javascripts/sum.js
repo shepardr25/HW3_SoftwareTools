@@ -1,7 +1,7 @@
 /*
 Author: Ruth Shepard
 Class: Software Engineering
-Assignment: HW 4
+Assignment: HW 5
 */
 
 function sum(a, b) {
