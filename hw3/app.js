@@ -1,27 +1,27 @@
 /*
 Author: Ruth Shepard
 Class: Software Engineering
-Assignment: HW 4
+Assignment: HW 5
 */
 
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const ordersRouter = require('./orders');
-
+const newOrderRouter = require('./routes/newOrder');
 const app = express();
 
-// Logger tracks requestss
+// Logger tracks requests
 app.use(logger('dev'));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Static files from public
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Orders route for HW4
-app.use('/orders', ordersRouter);
+// Route handlers
+app.use('/orders', ordersRouter);      // Fetch monthly orders
+app.use('/newOrder', newOrderRouter);  // Submit new order
 
 // Catch 404 and return JSON error
 app.use((req, res, next) => {
